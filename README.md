@@ -1,13 +1,5 @@
 # lets-build-a-compiler-in-clojure
 
-A Clojure library designed to ... well, that part is up to you.
-
-## Usage
-
-FIXME
-
-## License
-
-Copyright © 2013 FIXME
-
-Distributed under the Eclipse Public License, the same as Clojure.
+Exercises from Jack W. Crenshaw's [*Let's Build A Compiler*]
+(http://compilers.iecc.com/crenshaw/), written in [Clojure]
+(https://github.com/clojure/clojure).
