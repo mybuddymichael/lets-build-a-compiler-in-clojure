@@ -2,7 +2,9 @@
 
 (def look-char (atom nil))
 
-(defn get-char [])
+(defn get-char []
+  (let [c (read)]
+    (reset! look-char c)))
 
 (defn error [s]
   (throw (Exception. (str "Error: " s))))
