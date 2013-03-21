@@ -29,3 +29,9 @@
       (expected "Name"))
     (get-char)
     (clojure.string/upper-case c)))
+
+(defn emit [s]
+  (print (str \tab s)))
+
+(defn emitln [s]
+  (println (str \tab s)))
