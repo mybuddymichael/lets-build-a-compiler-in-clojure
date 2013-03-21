@@ -22,3 +22,10 @@
 
 (defn is-digit? [c]
   (re-seq #"[0-9]" c))
+
+(defn get-name []
+  (let [c look-char]
+    (when (not (is-alpha? c))
+      (expected "Name"))
+    (get-char)
+    (clojure.string/upper-case c)))
