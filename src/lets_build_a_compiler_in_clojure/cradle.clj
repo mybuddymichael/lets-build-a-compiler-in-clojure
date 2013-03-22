@@ -13,7 +13,7 @@
   (error (str s " Expected")))
 
 (defn match [c]
-  (if (= look-char c)
+  (if (= @look-char c)
     (get-char)
     (expected c)))
 
