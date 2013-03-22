@@ -17,6 +17,11 @@
     c
     (expected "Name")))
 
+(defn get-num [c]
+  (if is-digit? c
+    c
+    (expected "Integer")))
+
 (defn emit [s]
   (str \tab s))
 
