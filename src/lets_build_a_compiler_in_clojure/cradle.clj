@@ -12,11 +12,10 @@
 (defn is-digit? [c]
   (re-seq #"[0-9]" c))
 
-(defn get-name []
-  (let [c look-char]
-    (if is-alpha? c
-      c
-      (expected "Name"))))
+(defn get-name [c]
+  (if is-alpha? c
+    c
+    (expected "Name")))
 
 (defn emit [s]
   (str \tab s))
