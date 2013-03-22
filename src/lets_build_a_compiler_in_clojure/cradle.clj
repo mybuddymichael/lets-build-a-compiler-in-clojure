@@ -26,4 +26,4 @@
   (str \tab s))
 
 (defn emitln [s]
-  (str \tab s))
+  (str \tab s \newline))
