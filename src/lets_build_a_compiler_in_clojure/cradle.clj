@@ -7,7 +7,7 @@
     (reset! look-char c)))
 
 (defn expected [s]
-  (throw (Exception. (str s " Expected"))))
+  (throw (Exception. (str s " expected"))))
 
 (defn match [c]
   (if (= @look-char c)
