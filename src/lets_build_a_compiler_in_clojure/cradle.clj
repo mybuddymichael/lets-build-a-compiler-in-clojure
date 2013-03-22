@@ -1,11 +1,5 @@
 (ns lets-build-a-compiler-in-clojure.cradle)
 
-(def look-char (atom nil))
-
-(defn get-char []
-  (let [c (read)]
-    (reset! look-char c)))
-
 (defn expected [s]
   (throw (Exception. (str s " expected"))))
 
