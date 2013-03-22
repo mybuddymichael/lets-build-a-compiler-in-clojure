@@ -7,7 +7,7 @@
   (= x y))
 
 (defn is-alpha? [c]
-  (re-seq #"[A-Z]" (clojure.string/upper-case c)))
+  (re-seq #"[A-Za-z]" c))
 
 (defn is-digit? [c]
   (re-seq #"[0-9]" c))
