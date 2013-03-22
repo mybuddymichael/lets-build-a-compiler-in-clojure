@@ -6,11 +6,8 @@
   (let [c (read)]
     (reset! look-char c)))
 
-(defn error [s]
-  (throw (Exception. (str "Error: " s))))
-
 (defn expected [s]
-  (error (str s " Expected")))
+  (throw (Exception. (str s " Expected"))))
 
 (defn match [c]
   (if (= @look-char c)
