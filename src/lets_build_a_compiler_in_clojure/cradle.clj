@@ -14,10 +14,9 @@
 
 (defn get-name []
   (let [c look-char]
-    (when (not (is-alpha? c))
-      (expected "Name"))
-    (get-char)
-    (clojure.string/upper-case c)))
+    (if is-alpha? c
+      c
+      (expected "Name"))))
 
 (defn emit [s]
   (print (str \tab s)))
