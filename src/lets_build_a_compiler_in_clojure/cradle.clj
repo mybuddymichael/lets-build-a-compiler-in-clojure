@@ -19,7 +19,7 @@
       (expected "Name"))))
 
 (defn emit [s]
-  (print (str \tab s)))
+  (str \tab s))
 
 (defn emitln [s]
-  (println (str \tab s)))
+  (str \tab s))
