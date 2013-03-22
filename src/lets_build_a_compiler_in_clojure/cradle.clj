@@ -3,10 +3,8 @@
 (defn expected [s]
   (throw (Exception. (str s " expected"))))
 
-(defn match [c]
-  (if (= @look-char c)
-    (get-char)
-    (expected c)))
+(defn match [x y]
+  (= x y))
 
 (defn is-alpha? [c]
   (re-seq #"[A-Z]" (clojure.string/upper-case c)))
