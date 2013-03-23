@@ -1,7 +1,7 @@
 (ns lets-build-a-compiler-in-clojure.cradle)
 
 (defn expected [s]
-  (str s " expected"))
+  (throw (Exception. (str s " expected"))))
 
 (defn match [x y]
   (= x y))
