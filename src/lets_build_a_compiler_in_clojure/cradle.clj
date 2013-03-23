@@ -13,12 +13,12 @@
   (re-seq #"[0-9]" c))
 
 (defn get-name [c]
-  (if is-alpha? c
+  (if (is-alpha? c)
     c
     (expected "Name")))
 
 (defn get-num [c]
-  (if is-digit? c
+  (if (is-digit? c)
     c
     (expected "Integer")))
 
