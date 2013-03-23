@@ -7,10 +7,10 @@
   (= x y))
 
 (defn is-alpha? [c]
-  (re-seq #"[A-Za-z]" c))
+  (re-seq #"[A-Za-z]" (str c)))
 
 (defn is-digit? [c]
-  (re-seq #"[0-9]" c))
+  (re-seq #"[0-9]" (str c)))
 
 (defn get-name [c]
   (if (is-alpha? c)
