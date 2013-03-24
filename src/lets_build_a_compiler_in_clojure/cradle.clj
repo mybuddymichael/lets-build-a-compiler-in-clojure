@@ -28,5 +28,5 @@
 (defn emitln [s]
   (str \tab s \newline))
 
-(defn expression [s]
+(defn term [s]
   (emitln (str "MOVE #" (get-num s) ",D0")))
