@@ -37,3 +37,13 @@
 (defn sub []
   (str (emitln "SUB D1,D0")
        (emitln "NEG D0")))
+
+(defn expression [[x y z]]
+  (let [op (cond
+             (= y \+) (add)
+             (= y \-) (sub)
+             :else (expected "Addop"))]
+    (str (term x)
+         (emitln "MOVE D0,D1")
+         (term z)
+         op)))
