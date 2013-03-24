@@ -30,3 +30,6 @@
 
 (defn term [s]
   (emitln (str "MOVE #" (get-num s) ",D0")))
+
+(defn add []
+  (emitln "ADD D1,D0"))
