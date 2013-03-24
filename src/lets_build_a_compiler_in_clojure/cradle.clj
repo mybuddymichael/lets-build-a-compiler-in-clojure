@@ -33,3 +33,7 @@
 
 (defn add []
   (emitln "ADD D1,D0"))
+
+(defn sub []
+  (str (emitln "SUB D1,D0")
+       (emitln "NEG D0")))
