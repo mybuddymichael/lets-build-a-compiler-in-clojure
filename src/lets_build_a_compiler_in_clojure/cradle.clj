@@ -35,6 +35,12 @@
   (str (emitln "SUB D1,D0")
        (emitln "NEG D0")))
 
+(defn get-op [c]
+  (cond
+    (= c \+) (add)
+    (= c \-) (sub)
+    :else (expected "Addop")))
+
 (defn expression [[x & [y z]]]
   (if (not y)
     (term x)
