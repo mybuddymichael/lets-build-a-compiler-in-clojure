@@ -23,7 +23,7 @@
   (str \tab s))
 
 (defn emitln [s]
-  (str \tab s \newline))
+  (str (emit s) \newline))
 
 (defn term [s]
   (emitln (str "MOVE #" (get-num s) ",D0")))
