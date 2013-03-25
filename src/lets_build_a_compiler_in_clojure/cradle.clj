@@ -19,11 +19,8 @@
     c
     (expected "Integer")))
 
-(defn emit [s]
-  (str \tab s))
-
 (defn emitln [s]
-  (str (emit s) \newline))
+  (str \tab s \newline))
 
 (defn term [s]
   (emitln (str "MOVE #" (get-num s) ",D0")))
