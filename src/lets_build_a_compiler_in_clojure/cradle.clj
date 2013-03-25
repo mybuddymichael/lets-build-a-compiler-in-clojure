@@ -41,14 +41,13 @@
     (= c \-) (sub)
     :else (expected "Addop")))
 
-(defn expression [[x & [y z]]]
-  (if (not y)
-    (term x)
-    (let [op (cond
-               (= y \+) (add)
-               (= y \-) (sub)
-               :else (expected "Addop"))]
-      (str (term x)
-           (emitln "MOVE D0,D1")
-           (term z)
-           op))))
+(defn sub-expression [[op t & more]]
+  (str (emitln "MOVE D0,D1")
+       (term t)
+       (get-op op)
+       (when (seq more) (sub-expression more))))
+
+(defn expression [[t & more]]
+  (str (term t)
+       (when (seq more)
+         (sub-expression more))))
