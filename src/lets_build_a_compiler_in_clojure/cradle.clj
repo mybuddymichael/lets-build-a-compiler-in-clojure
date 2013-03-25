@@ -3,9 +3,6 @@
 (defn expected [s]
   (throw (Exception. (str s " expected"))))
 
-(defn match [x y]
-  (= x y))
-
 (defn is-alpha? [c]
   (re-seq #"[A-Za-z]" (str c)))
 
