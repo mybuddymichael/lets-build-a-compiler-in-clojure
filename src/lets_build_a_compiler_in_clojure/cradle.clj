@@ -29,10 +29,10 @@
   (emitln (str "MOVE #" (get-num s) ",D0")))
 
 (defn add []
-  (emitln "ADD D1,D0"))
+  (emitln "ADD (SP)+,D0"))
 
 (defn sub []
-  (str (emitln "SUB D1,D0")
+  (str (emitln "SUB (SP)+,D0")
        (emitln "NEG D0")))
 
 (defn get-op [c]
@@ -42,7 +42,7 @@
     :else (expected "Addop")))
 
 (defn sub-expression [[op t & more]]
-  (str (emitln "MOVE D0,D1")
+  (str (emitln "MOVE D0,-(SP)")
        (term t)
        (get-op op)
        (when (seq more) (sub-expression more))))
