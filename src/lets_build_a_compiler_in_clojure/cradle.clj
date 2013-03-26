@@ -39,11 +39,17 @@
   (str (emitln "MOVE (SP)+,D1")
        (emitln "DIVS D1,D0")))
 
-(defn get-op [c]
+(defn get-addop [c]
+   (cond
+     (= c \+) (add)
+     (= c \-) (sub)
+     :else (expected "Addop")))
+
+(defn get-mulop [c]
   (cond
-    (= c \+) (add)
-    (= c \-) (sub)
-    :else (expected "Addop")))
+    (= c \*) (mul)
+    (= c \/) (div)
+    :else (expected "Mulop")))
 
 (defn sub-expression [[op t & more]]
   (str (emitln "MOVE D0,-(SP)")
