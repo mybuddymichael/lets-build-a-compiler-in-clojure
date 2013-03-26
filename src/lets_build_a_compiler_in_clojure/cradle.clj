@@ -28,7 +28,7 @@
 (defn add []
   (emitln "ADD (SP)+,D0"))
 
-(defn sub []
+(defn subtract []
   (str (emitln "SUB (SP)+,D0")
        (emitln "NEG D0")))
 
