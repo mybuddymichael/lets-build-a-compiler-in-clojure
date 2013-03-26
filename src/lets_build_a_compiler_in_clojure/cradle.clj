@@ -22,7 +22,7 @@
 (defn emitln [s]
   (str \tab s \newline))
 
-(defn term [s]
+(defn factor [s]
   (emitln (str "MOVE #" (get-number s) ",D0")))
 
 (defn add []
