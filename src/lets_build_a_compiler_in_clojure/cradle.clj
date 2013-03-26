@@ -14,7 +14,7 @@
     c
     (expected "Name")))
 
-(defn get-num [c]
+(defn get-number [c]
   (if (is-digit? c)
     c
     (expected "Integer")))
@@ -23,7 +23,7 @@
   (str \tab s \newline))
 
 (defn term [s]
-  (emitln (str "MOVE #" (get-num s) ",D0")))
+  (emitln (str "MOVE #" (get-number s) ",D0")))
 
 (defn add []
   (emitln "ADD (SP)+,D0"))
