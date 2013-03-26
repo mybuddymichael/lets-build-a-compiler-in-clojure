@@ -49,7 +49,8 @@
   (str (emitln "MOVE D0,-(SP)")
        (term t)
        (get-op op)
-       (when (seq more) (sub-expression more))))
+       (when (seq more)
+         (sub-expression more))))
 
 (defn expression [[t & more]]
   (str (term t)
