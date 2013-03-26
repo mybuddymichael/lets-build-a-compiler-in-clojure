@@ -42,13 +42,13 @@
 (defn get-addop [c]
    (cond
      (= c \+) (add)
-     (= c \-) (sub)
+     (= c \-) (subtract)
      :else (expected "Addop")))
 
 (defn get-mulop [c]
   (cond
-    (= c \*) (mul)
-    (= c \/) (div)
+    (= c \*) (multiply)
+    (= c \/) (divide)
     :else (expected "Mulop")))
 
 (defn sub-expression [[op t & more]]
