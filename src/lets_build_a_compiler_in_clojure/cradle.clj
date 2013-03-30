@@ -22,5 +22,13 @@
 (defn emitln [s]
   (str \tab s \newline))
 
+(defn add [c]
+  (str (term c)
+       (emitln "ADD D1,D0")))
+
+(defn subtract [c]
+  (str (term c)
+       (emitln "SUB D1,D0")))
+
 (defn term [s]
   (emitln (str "MOVE #" (get-number s) ",D0")))
