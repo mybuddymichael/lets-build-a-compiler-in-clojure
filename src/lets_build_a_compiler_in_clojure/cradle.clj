@@ -1,5 +1,10 @@
 (ns lets-build-a-compiler-in-clojure.cradle)
 
+(defmacro debug [x]
+  `(let [x# ~x]
+     (println "debug:" '~x "=" x#)
+     x#))
+
 (defn expected [s]
   (throw (Exception. (str s " expected"))))
 
