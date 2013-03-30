@@ -28,7 +28,8 @@
 
 (defn subtract [c]
   (str (term c)
-       (emitln "SUB D1,D0")))
+       (emitln "SUB D1,D0")
+       (emitln "NEG D0")))
 
 (defn term [s]
   (emitln (str "MOVE #" (get-number s) ",D0")))
