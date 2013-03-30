@@ -47,4 +47,4 @@
                    more)
             string))]
     (str (term (first s))
-         (sub-expression "" (rest s)))))
+         (sub-expression nil (rest s)))))
