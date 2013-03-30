@@ -24,11 +24,11 @@
 
 (defn add [c]
   (str (term c)
-       (emitln "ADD D1,D0")))
+       (emitln "ADD (SP)+,D0")))
 
 (defn subtract [c]
   (str (term c)
-       (emitln "SUB D1,D0")
+       (emitln "SUB (SP)+,D0")
        (emitln "NEG D0")))
 
 (defn term [s]
@@ -39,7 +39,7 @@
         (fn [string [op t & more]]
           (if op
             (recur (str string
-                        (emitln "MOVE D0,D1")
+                        (emitln "MOVE D0,-(SP)")
                         (cond
                           (= op \+) (add t)
                           (= op \-) (subtract t)
