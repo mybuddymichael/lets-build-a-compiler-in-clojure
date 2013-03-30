@@ -22,9 +22,6 @@
 (defn emitln [s]
   (str \tab s \newline))
 
-(defn factor [s]
-  (emitln (str "MOVE #" (get-number s) ",D0")))
-
 (def addops #"[+|-]")
 
 (defn add []
@@ -42,16 +39,3 @@
 (defn divide []
   (str (emitln "MOVE (SP)+,D1")
        (emitln "DIVS D1,D0")))
-
-
-(defn sub-expression [[op t & more]]
-  (str (emitln "MOVE D0,-(SP)")
-       (term t)
-       (get-addop op)
-       (when (seq more)
-         (sub-expression more))))
-
-(defn expression [[t & more]]
-  (str (term t)
-       (when (seq more)
-         (sub-expression more))))
