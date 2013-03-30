@@ -43,17 +43,16 @@
        (emitln "MOVE (SP)+,D1")
        (emitln "DIVS D1,D0")))
 
+(defn sub-expression [s]
+  (let [[op t & more] s]
+    (when op
+      (str (emitln "MOVE D0,-(SP)")
+           (cond
+             (= op \+) (add t)
+             (= op \-) (subtract t)
+             :else (expected "Addop"))
+           (sub-expression more)))))
+
 (defn expression [s]
-  (let [sub-expression
-        (fn [string [op t & more]]
-          (if op
-            (recur (str string
-                        (emitln "MOVE D0,-(SP)")
-                        (cond
-                          (= op \+) (add t)
-                          (= op \-) (subtract t)
-                          :else (expected "Addop")))
-                   more)
-            string))]
-    (str (factor (first s))
-         (sub-expression nil (rest s)))))
+  (str (factor (first s))
+       (sub-expression (rest s))))
