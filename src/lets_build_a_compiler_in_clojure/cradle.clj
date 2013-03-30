@@ -23,15 +23,15 @@
   (str \tab s \newline))
 
 (defn add [c]
-  (str (term c)
+  (str (factor c)
        (emitln "ADD (SP)+,D0")))
 
 (defn subtract [c]
-  (str (term c)
+  (str (factor c)
        (emitln "SUB (SP)+,D0")
        (emitln "NEG D0")))
 
-(defn term [s]
+(defn factor [s]
   (emitln (str "MOVE #" (get-number s) ",D0")))
 
 (defn expression [s]
@@ -46,5 +46,5 @@
                           :else (expected "Addop")))
                    more)
             string))]
-    (str (term (first s))
+    (str (factor (first s))
          (sub-expression nil (rest s)))))
