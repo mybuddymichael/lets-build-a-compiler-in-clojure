@@ -22,6 +22,9 @@
 (defn emitln [s]
   (str \tab s \newline))
 
+(defn factor [s]
+  (emitln (str "MOVE #" (get-number s) ",D0")))
+
 (defn add [c]
   (str (factor c)
        (emitln "ADD (SP)+,D0")))
@@ -30,9 +33,6 @@
   (str (factor c)
        (emitln "SUB (SP)+,D0")
        (emitln "NEG D0")))
-
-(defn factor [s]
-  (emitln (str "MOVE #" (get-number s) ",D0")))
 
 (defn expression [s]
   (let [sub-expression
