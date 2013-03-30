@@ -35,10 +35,16 @@
   (emitln (str "MOVE #" (get-number s) ",D0")))
 
 (defn expression [s]
-  (let [[t1 op t2] s]
-    (str (term t1)
-         (emitln "MOVE D0,D1")
-         (cond
-           (= op \+) (add t2)
-           (= op \-) (subtract t2)
-           :else (expected "Addop")))))
+  (let [sub-expression
+        (fn [string [op t & more]]
+          (if op
+            (recur (str string
+                        (emitln "MOVE D0,D1")
+                        (cond
+                          (= op \+) (add t)
+                          (= op \-) (subtract t)
+                          :else (expected "Addop")))
+                   more)
+            string))]
+    (str (term (first s))
+         (sub-expression "" (rest s)))))
