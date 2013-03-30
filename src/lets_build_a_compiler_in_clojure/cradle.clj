@@ -25,12 +25,16 @@
 (defn factor [s]
   (emitln (str "MOVE #" (get-number s) ",D0")))
 
+(def addops #"[+|-]")
+
 (defn add []
   (emitln "ADD (SP)+,D0"))
 
 (defn subtract []
   (str (emitln "SUB (SP)+,D0")
        (emitln "NEG D0")))
+
+(def mulops #"[*|/]")
 
 (defn multiply []
   (emitln "MULS (SP)+,D0"))
