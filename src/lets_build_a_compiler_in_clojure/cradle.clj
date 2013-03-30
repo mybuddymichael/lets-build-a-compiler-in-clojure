@@ -22,16 +22,12 @@
 (defn emitln [s]
   (str \tab s \newline))
 
-(def addops #"[+|-]")
-
 (defn add []
   (emitln "ADD (SP)+,D0"))
 
 (defn subtract []
   (str (emitln "SUB (SP)+,D0")
        (emitln "NEG D0")))
-
-(def mulops #"[*|/]")
 
 (defn multiply []
   (emitln "MULS (SP)+,D0"))
