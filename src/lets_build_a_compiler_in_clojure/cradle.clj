@@ -33,11 +33,11 @@
 (declare term)
 
 (defn add [c]
-  (str (factor c)
+  (str (term c)
        (emitln "ADD (SP)+,D0")))
 
 (defn subtract [c]
-  (str (factor c)
+  (str (term c)
        (emitln "SUB (SP)+,D0")
        (emitln "NEG D0")))
 
