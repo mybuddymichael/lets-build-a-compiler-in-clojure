@@ -30,6 +30,8 @@
 (defn factor [s]
   (emitln (str "MOVE #" (get-number s) ",D0")))
 
+(declare term)
+
 (defn add [c]
   (str (factor c)
        (emitln "ADD (SP)+,D0")))
