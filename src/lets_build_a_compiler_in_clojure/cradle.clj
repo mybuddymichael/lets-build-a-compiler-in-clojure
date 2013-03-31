@@ -52,10 +52,11 @@
       (str (emitln "MOVE D0,-(SP)")
            (factor t)
            (cond
-             (= op \+) (add t)
-             (= op \-) (subtract t)
-             :else (expected "Addop"))
-           (sub-expression more)))))
+             (= op \*) (str (multiply t) (sub-expression more))
+             (= op \/) (str (divide t) (sub-expression more))
+             (= op \+) (str (sub-expression more) (add t))
+             (= op \-) (str (sub-expression more) (subtract t))
+             :else (expected "Mathop"))))))
 
 (defn expression [s]
   (str (factor (first s))
