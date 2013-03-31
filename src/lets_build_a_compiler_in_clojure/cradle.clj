@@ -33,27 +33,24 @@
 (declare term)
 
 (defn add [c]
-  (str (factor c)
-       (emitln "ADD (SP)+,D0")))
+  (str (emitln "ADD (SP)+,D0")))
 
 (defn subtract [c]
-  (str (factor c)
-       (emitln "SUB (SP)+,D0")
+  (str (emitln "SUB (SP)+,D0")
        (emitln "NEG D0")))
 
 (defn multiply [c]
-  (str (factor c)
-       (emitln "MULS (SP)+,D0")))
+  (str (emitln "MULS (SP)+,D0")))
 
 (defn divide [c]
-  (str (factor c)
-       (emitln "MOVE (SP)+,D1")
+  (str (emitln "MOVE (SP)+,D1")
        (emitln "DIVS D1,D0")))
 
 (defn sub-expression [s]
   (let [[op t & more] s]
     (when op
       (str (emitln "MOVE D0,-(SP)")
+           (factor t)
            (cond
              (= op \+) (add t)
              (= op \-) (subtract t)
