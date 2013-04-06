@@ -13,3 +13,5 @@
 (defn expected [s]
   (throw (Exception. (str s " expected"))))
 
+(def factor-regex #"^[0-9]$")
+(def mathop-regex #"^[\+\-\*\/]$")
