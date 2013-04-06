@@ -5,11 +5,6 @@
      (println "debug:" '~x "=" x#)
      x#))
 
-;; Our syntax in EBNF.
-;; factor = "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" ;
-;; mathop = "+" | "-" | "*" | "/" ;
-;; expression = factor | "(" , mathop , expression , { expression } , ")" ;
-
 (defn expected [s]
   (throw (Exception. (str s " expected"))))
 
@@ -49,6 +44,10 @@
   (str (emitln "MOVE (SP)+,D1")
        (emitln "DIVS D1,D0")))
 
+;; Our syntax in EBNF.
+;; factor = "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" ;
+;; mathop = "+" | "-" | "*" | "/" ;
+;; expression = factor | "(" , mathop , expression , { expression } , ")" ;
 
 (defn sub-expression [s]
   (let [[op t & more] s]
